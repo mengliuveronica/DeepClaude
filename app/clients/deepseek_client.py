@@ -68,7 +68,7 @@ class DeepSeekClient(BaseClient):
         
         async for chunk in self._make_request(headers, data):
             chunk_str = chunk.decode('utf-8')
-            
+            logger.debug(f"[DeepSeek] Raw API response: {chunk_str}")  # Log raw response
             try:
                 lines = chunk_str.splitlines()
                 for line in lines:
